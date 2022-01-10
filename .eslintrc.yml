@@ -106,6 +106,7 @@ rules:
       afterColon: true
   linebreak-style: 2
   lines-around-comment: 0
+  line-comment-position: 0
   max-depth: 0
   max-len:
     - 2
