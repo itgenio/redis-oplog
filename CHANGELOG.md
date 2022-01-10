@@ -1,5 +1,13 @@
 ## CHANGELOG
 
+### 2.0.6
+
+- updated meteor version to 1.10+
+- replaced unused `overridePublishFunction` key in config by `extendMongoCollection` to enable extending mongo collection. By default: `true`.
+- add EJSON parser for Vent's field `VentConstants.EVENT_VARIABLE` (because DDP.parse only handle internal fields like `'fields', 'params', 'result'`)
+
+-----
+
 ### 1.2.3
 - Redis connection failover handling
 - Refetching the up to date collection when Redis connection resumes

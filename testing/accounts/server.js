@@ -1,18 +1,5 @@
 import { Accounts } from 'meteor/accounts-base';
 
-// UserPresence.onCleanup(function(){
-//     Meteor.users.update({}, {$unset:{status:true}}, {multi:true});
-// });
-UserPresence.onUserOnline(function(userId) {
-    Meteor.users.update({ _id: userId }, { $set: { status: 'online' } });
-});
-// UserPresence.onUserIdle(function(userId){
-//     Meteor.users.update({_id:userId}, {$set:{status:"idle"}})
-// });
-// UserPresence.onUserOffline(function(userId){
-//     Meteor.users.update({_id:userId}, {$unset:{status:true}})
-// });
-
 Meteor.publish('accounts_userData', function(options) {
     const uid = this.userId;
 

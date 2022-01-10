@@ -1,15 +1,6 @@
-## Introducing BlueLibs
-
-- [GitHub BlueLibs Monorepo](https://github.com/bluelibs/bluelibs)
-- Following the same bold vision of Meteor, but with a modern twist. www.bluelibs.com
-- Read more about our approach coming from Meteor: https://www.bluelibs.com/blog/2021/11/26/the-meteor-of-2022
-- We've implemented [RedisOplog](https://www.bluelibs.com/docs/package-x-bundle#live-data) in our framework as well, but it also works with in-memory and with customisable pubsub, not bound to redis.
-
 # Welcome to Redis Oplog
 
-### LICENSE: MIT
-
-[![Build Status](https://api.travis-ci.org/cult-of-coders/redis-oplog.svg?branch=master)](https://travis-ci.org/cult-of-coders/redis-oplog) [![Backers on Open Collective](https://opencollective.com/redis-oplog/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/redis-oplog/sponsors/badge.svg)](#sponsors)
+[![Build Status](https://api.travis-ci.org/cult-of-coders/redis-oplog.svg?branch=master)](https://travis-ci.org/cult-of-coders/redis-oplog)
 
 ## RedisOplog
 
@@ -21,7 +12,7 @@ Incrementally adoptable & works with your current Meteor project.
 ## Installation
 
 ```bash
-meteor add cultofcoders:redis-oplog
+meteor add itgenio:redis-oplog
 meteor add disable-oplog
 ```
 
@@ -115,34 +106,4 @@ Find out how you can customize your reactivity and enable it across multiple lan
 If you have different workers/services that perform updates to mongo and they exist outside Meteor, you can still trigger
 reactivity for the Meteor instances with a few lines of code.
 
-## Premium Support
-
-If you are looking to scale your business using this package and you need to have your back covered. We are here to help. Feel free to contact us
-at contact@cultofcoders.com.
-
-## Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-<a href="graphs/contributors"><img src="https://opencollective.com/redis-oplog/contributors.svg?width=890" /></a>
-
-## Backers
-
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/redis-oplog#backer)]
-
-<a href="https://opencollective.com/redis-oplog#backers" target="_blank"><img src="https://opencollective.com/redis-oplog/backers.svg?width=890"></a>
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/redis-oplog#sponsor)]
-
-<a href="https://opencollective.com/redis-oplog/sponsor/0/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/1/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/2/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/3/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/4/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/5/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/6/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/7/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/8/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/redis-oplog/sponsor/9/website" target="_blank"><img src="https://opencollective.com/redis-oplog/sponsor/9/avatar.svg"></a>
-
+### LICENSE: MIT

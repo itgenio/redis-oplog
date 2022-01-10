@@ -12,8 +12,6 @@ Items.allow({
     remove: () => true,
 });
 
-// Meteor.publishComposite.enableDebugLogging();
-
 Meteor.methods({
     'optimistic_ui.items.insert'(...args) {
         return Items.insert(...args, { optimistic: true });
