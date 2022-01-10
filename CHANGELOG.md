@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### 2.0.7
+
+- export `VentClient`
+- add `connection` arg to `VentClient` constructor. Default: `Meteor.connection`
+
 ### 2.0.6
 
 - updated meteor version to 1.10+
