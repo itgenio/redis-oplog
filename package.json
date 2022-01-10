@@ -1,0 +1,27 @@
+{
+  "name": "itgenio-redis-oplog",
+  "version": "2.0.5",
+  "description": "[![Build Status](https://api.travis-ci.org/cult-of-coders/redis-oplog.svg?branch=master)](https://travis-ci.org/cult-of-coders/redis-oplog)",
+  "main": "package.js",
+  "scripts": {
+    "test": "meteor test-packages ./",
+    "lint": "eslint ./**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itgenio/redis-oplog.git"
+  },
+  "author": "Alex So",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itgenio/redis-oplog/issues"
+  },
+  "homepage": "https://github.com/itgenio/redis-oplog#readme",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
+    "@types/meteor": "^1.4.87",
+    "eslint": "^8.6.0",
+    "eslint-config-es": "^0.8.12",
+    "eslint-plugin-babel": "^5.3.1"
+  }
+}

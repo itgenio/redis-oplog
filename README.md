@@ -9,6 +9,13 @@ into building reactive applications, highly scalable chat apps, games, and added
 
 Incrementally adoptable & works with your current Meteor project.
 
+## Difference from original
+
+- we are using only Vent, so, this package in the future should be renamed to `itgenio:vent`.
+- Meteor 1.10+, will support only modern versions
+- ES6 & TypeScript in the future.
+- ESLint & Prettier
+
 ## Installation
 
 ```bash

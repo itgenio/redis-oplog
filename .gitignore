@@ -1,3 +1,9 @@
 .DS_Store
 dump.rdb
 npm-debug.log
+.build*
+node_modules/
+.npm
+smart.lock
+versions.json
+.idea

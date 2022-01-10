@@ -16,6 +16,7 @@ Npm.depends({
   'lodash.clonedeep': '4.5.0',
 });
 
+// eslint-disable-next-line prefer-arrow-callback
 Package.onUse(function (api) {
   api.versionsFrom('1.10');
   api.use([
@@ -36,6 +37,7 @@ Package.onUse(function (api) {
   api.mainModule('redis-oplog.client.js', 'client');
 });
 
+// eslint-disable-next-line prefer-arrow-callback
 Package.onTest(function (api) {
   api.use('cultofcoders:redis-oplog');
 
