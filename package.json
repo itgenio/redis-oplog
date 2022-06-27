@@ -1,11 +1,12 @@
 {
   "name": "itgenio-redis-oplog",
   "version": "2.0.7",
-  "description": "[![Build Status](https://api.travis-ci.org/cult-of-coders/redis-oplog.svg?branch=master)](https://travis-ci.org/cult-of-coders/redis-oplog)",
+  "description": "[![Build Status](https://api.travis-ci.org/itgenio/redis-oplog.svg?branch=master)](https://travis-ci.org/cult-of-coders/redis-oplog)",
   "main": "package.js",
   "scripts": {
     "test": "meteor test-packages ./",
-    "lint": "eslint ./**/*.js"
+    "lint": "eslint ./**/*.js",
+    "publish": "npm prune --production && meteor publish"
   },
   "repository": {
     "type": "git",

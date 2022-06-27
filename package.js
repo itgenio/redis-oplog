@@ -1,6 +1,6 @@
 Package.describe({
   name: 'itgenio:redis-oplog',
-  version: '2.0.7',
+  version: '2.0.8',
   // Brief, one-line summary of the package.
   summary: "Replacement for Meteor's MongoDB oplog implementation",
   // URL to the Git repository containing the source code for this package.
@@ -39,7 +39,7 @@ Package.onUse(function (api) {
 
 // eslint-disable-next-line prefer-arrow-callback
 Package.onTest(function (api) {
-  api.use('cultofcoders:redis-oplog');
+  api.use('itgenio:redis-oplog');
 
   api.use('ecmascript');
   api.use('tracker');
