@@ -1,6 +1,6 @@
+import { RedisOplog, SyntheticMutator } from 'meteor/itgenio:redis-oplog';
 import { Mongo } from 'meteor/mongo';
 import { _ } from 'meteor/underscore';
-import { RedisOplog, SyntheticMutator } from 'meteor/cultofcoders:redis-oplog';
 
 if (Meteor.isServer) {
     RedisOplog.init({
@@ -8,7 +8,7 @@ if (Meteor.isServer) {
             port: 6379, // Redis port
             host: '127.0.0.1', // Redis host
         },
-        // extendMongoCollection: true
+        // overridePublishFunction: true
         // debug: true
     });
 }
@@ -32,8 +32,8 @@ const opts = {
     Namespace: { namespace: 'some_namespace' },
 };
 const config = {
-    RaceConditionProne: { 
-        suffix: 'race-condition-prone', 
+    RaceConditionProne: {
+        suffix: 'race-condition-prone',
         disableSyntheticTests: true,
     },
     Standard: { suffix: 'standard', channel: 'test_redis_collection' },
@@ -44,60 +44,69 @@ const config = {
     },
 };
 
-export { Collections, opts, config };
+export { Collections, config, opts };
 
 if (Meteor.isServer) {
     _.each(Collections, (Collection, key) => {
         Collection.allow({
+            insertAsync: () => true,
+            updateAsync: () => true,
+            removeAsync: () => true,
             insert: () => true,
             update: () => true,
             remove: () => true,
         });
 
         Collection.deny({
+            insertAsync: () => false,
+            updateAsync: () => false,
+            removeAsync: () => false,
             insert: () => false,
             update: () => false,
             remove: () => false,
         });
 
-        Meteor.publish(`publication.${config[key].suffix}`, function(
+        Meteor.publish(`publication.${config[key].suffix}`, async function(
             filters,
             options
         ) {
-            return Collection.find(filters, _.extend({}, options, opts[key]));
+            return Collection.find(filters, Object.assign({}, options, opts[key]));
         });
 
         Meteor.methods({
-            [`create.${config[key].suffix}`](item, options = {}) {
+            async [`create.${config[key].suffix}`](item, options = {}) {
                 if (_.isArray(item)) {
-                    return _.map(item, i =>
-                        Collection.insert(i, _.extend(options, opts[key]))
-                    );
+                    const result = [];
+                    for (const i of item) {
+                        result.push(await Collection.insertAsync(i, Object.assign(options, opts[key])))
+                    }
+
+                    return result;
                 }
 
-                return Collection.insert(item, _.extend(options, opts[key]));
+                return Collection.insertAsync(item, Object.assign(options, opts[key]));
             },
             [`fetch.${config[key].suffix}`](selector = {}, options = {}) {
-                return Collection.find(selector, options).fetch();
+                return Collection.find(selector, options).fetchAsync();
             },
             [`update.${config[key].suffix}`](selectors, modifier, options) {
-                return Collection.update(
+                return Collection.updateAsync(
                     selectors,
                     modifier,
-                    _.extend({}, opts[key], options)
+                    Object.assign({}, opts[key], options)
                 );
             },
             [`upsert.${config[key].suffix}`](selectors, modifier, options) {
-                return Collection.upsert(
+                return Collection.upsertAsync(
                     selectors,
                     modifier,
-                    _.extend({}, opts[key], options)
+                    Object.assign({}, opts[key], options)
                 );
             },
             [`remove.${config[key].suffix}`](selectors, options = {}) {
-                return Collection.remove(
+                return Collection.removeAsync(
                     selectors,
-                    _.extend(options, opts[key])
+                    Object.assign(options, opts[key])
                 );
             },
             [`synthetic.${config[key].suffix}`](

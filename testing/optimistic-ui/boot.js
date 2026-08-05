@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Items } from './collections';
 
 if (Meteor.isServer) {
@@ -7,10 +8,15 @@ if (Meteor.isServer) {
 }
 
 Items.allow({
+    insertAsync: () => true,
+    updateAsync: () => true,
+    removeAsync: () => true,
     insert: () => true,
     update: () => true,
     remove: () => true,
 });
+
+// Meteor.publishComposite.enableDebugLogging();
 
 Meteor.methods({
     'optimistic_ui.items.insert'(...args) {

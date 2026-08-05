@@ -1,6 +1,6 @@
-import {assert} from 'chai';
-import {Items} from './collections';
-import {Meteor} from 'meteor/meteor';
+import { assert } from 'chai';
+import { Items } from './collections';
+import { Meteor } from 'meteor/meteor';
 
 describe('Testing custom publications functionality', function () {
     it('Should be able to retrieve the correct number', function (done) {
