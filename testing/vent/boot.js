@@ -1,5 +1,5 @@
-import {Vent} from 'meteor/cultofcoders:redis-oplog';
-import {Meteor} from 'meteor/meteor';
+import { Vent } from 'meteor/itgenio:redis-oplog';
+import { Meteor } from 'meteor/meteor';
 
 Vent.publish({
     'threadMessage'({channel, shouldReturn = true}) {
@@ -16,9 +16,9 @@ Vent.publish({
 });
 
 Meteor.methods({
-    'vent_emit'({channel, object, times = 1}) {
+    async 'vent_emit'({channel, object, times = 1}) {
         for (let i = 0; i < times; i++) {
-            Vent.emit(channel, object)
+            await Vent.emit(channel, object)
         }
     }
 });

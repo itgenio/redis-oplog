@@ -12,7 +12,7 @@ Incrementally adoptable & works with your current Meteor project.
 ## Difference from original
 
 - we are using only Vent, so, this package in the future should be renamed to `itgenio:vent`.
-- Meteor 1.10+, will support only modern versions
+- Meteor 3.5+
 - ES6 & TypeScript in the future.
 - ESLint & Prettier
 

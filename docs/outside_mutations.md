@@ -10,7 +10,6 @@ Given I have the following publication:
 ```js
 return Tasks.find({groupId});
 ```
-
 If an outside worker updates the MongoDB, it should also send changes to redis like this:
 
 ```js
@@ -93,4 +92,3 @@ getRedisPusher().publish('tasks', EJSON.stringify({
     [RedisPipe.FIELDS]: ['status']
 }));
 ```
-
