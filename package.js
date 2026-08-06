@@ -20,7 +20,7 @@ Npm.depends({
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@3.5');
   api.use([
-    'underscore',
+    'underscore@1.6.4',
     'ecmascript',
     'ejson',
     'minimongo',
